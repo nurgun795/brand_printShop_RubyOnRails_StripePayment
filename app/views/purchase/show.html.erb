@@ -1,0 +1,9 @@
+<div class="w-full min-h-screen bg-gradient-to-b from-indigo-500 to-pink-400 pt-36">
+    <h1 class="text-[60px] text-center text-pink-900  japanese-font "> <%= @product.title %> </h1>
+    <div class="grid md:grid-cols-2 max-w-5xl w-full mx-auto">
+        <%= image_tag(@product.images.first, class: "w-80 object-cover") %>
+        <div data-controller="stripe-form" data-stripe-form-url-value=" <%= stripe_session_product_purchase_index_path(@product) %>" >
+
+        </div>
+    </div>
+</div>

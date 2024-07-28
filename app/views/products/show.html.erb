@@ -1,0 +1,36 @@
+<div class="w-full min-h-screen bg-gradient-to-b from-indigo-500 to-pink-400 py-36">
+  <h1 class="text-[60px] text-center text-pink-900  japanese-font "> <%= @product.title %> </h1>
+  <div class="grid lg:grid-cols-2 px-8">
+    <div class="flex flex-col-reverse md:flex-row gap-8" data-controller="image-preview">
+      <div class="grid grid-cols-4 md:grid-cols-1 gap-4">
+        <% @product.images.each do |image| %>
+          <%= image_tag image, class: "w-20 h-20 objective-cover", data:{ action: "click->image-preview#showImage" } %>
+        <% end %>
+      </div>
+      <%= image_tag @product.images.first, class: "w-full h-[500px] object-cover", 
+          data: {image_preview_target: "bigImage"} %>
+    </div>
+    <div class="p-4">
+          <span class="text-2xl text-indigo-200 font-semibold"> <%= number_to_currency @product.price %> </span>
+          <div class="flex justify-center">
+            <%= link_to "Purchase Now", product_purchase_path(@product), class: "bg-gradient-to-r from-indigo-500 to-blue-500 py-3 rounded-lg text-indigo-50 text-xl w-80 text-center" %>
+          </div>
+          <div class="text-2xl text-pink-50 "> <%= @product.description %> </div>
+    </div>
+  </div>
+
+  <div class="mt-10">
+      <h3 class="text-4xl text-center text-indigo-100 japanese-font"> View our other shirts </h3>
+
+    <div class="flex flex-wrap gap-4 max-w-5xl w-full mx-auto px-8">
+      <% Product.where.not(id: @product.id).first(4).each do |product| %>
+        <%= link_to product do %>
+          <div class="w-56">
+              <%= image_tag product.images.first, class: "w-full object-cover" if product.images.any? %>
+              <span class="text-indigo-100 text-lg"> <%= product.title %> </span>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>

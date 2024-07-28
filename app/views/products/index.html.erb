@@ -1,0 +1,18 @@
+<div class="w-full min-h-screen bg-gradient-to-b from-indigo-500 to-pink-400 pt-36">
+  <h1 class="text-[100px] text-center text-pink-100 chill-font h-40 overflow-hidden"> Fire T-Shirts </h1>
+  <p class="text-lg text-pink-100 text-center"> The Best t-shirts from all around the world</p>
+
+  <div class="max-w-5xl w-full mx-auto grid md:grid-cols-3 gap-4 h-full px-8 md:px-4">
+    <% @products.each do |product| %>
+      <%= link_to product do %>
+        <div class="w-full md:w-56 flex flex-col bg-gray-600 rounded-lg overflow-hidden">
+          <%= image_tag(product.images.first, class: "h-56 w-full object-cover") if product.images.any? %>
+          <div class="p-2 flex flex-col">
+            <span class="text-pink-100 kashima-font text-2xl"> <%= product.title %> </span>
+            <span class="p-2 rounded-full bg-indigo-500 text-indigo-100 ml-auto"> <%= number_to_currency product.price %> </span>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+</div>

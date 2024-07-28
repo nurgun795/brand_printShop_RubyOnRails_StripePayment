@@ -1,0 +1,12 @@
+<div class="w-full min-h-screen bg-gradient-to-b from-indigo-500 to-pink-400 pt-36">
+    <div class="max-w-2xl w-full mx-auto">
+        <h1 class="text-center text-5xl text-indigo-100"> Thanks for your purchase! </h1>
+        <p class="text-lg text-indigo-100 text-center"> We will ship this out to you shortly </p>
+    </div>      
+
+
+<div class="flex flex-col items-center">
+    <h2 class="text-[60px] text-center text-pink-900  japanese-font "> <%= @product.title %> </h2>
+        <%= image_tag(@product.images.first, class: "w-80 object-cover") %>
+    </div>
+</div>

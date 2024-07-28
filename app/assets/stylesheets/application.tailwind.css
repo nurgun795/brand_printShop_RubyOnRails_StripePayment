@@ -1,0 +1,38 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/*
+
+@layer components {
+  .btn-primary {
+    @apply py-2 px-4 bg-blue-200;
+  }
+}
+
+*/
+@import 'actiontext.css';
+
+.chill-font {
+  font-family: "Chill";
+}
+.kashima-font {
+  font-family: "Kashima";
+}
+.japanese-font {
+  font-family: "Japanese";
+}
+
+@font-face {
+  font-family: "Japanese";
+  src: url("/fonts/Japanese.ttf");
+}
+@font-face {
+  font-family: "Chill";
+  src: url("/fonts/Brooklyn-Chill.ttf");
+}
+
+@font-face {
+  font-family: "Kashima";
+  src: url("/fonts/Kashima.otf");
+}
